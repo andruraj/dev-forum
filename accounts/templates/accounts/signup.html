@@ -5,8 +5,9 @@
 <h1>Signup</h1>
 <form action="/accounts/signup/" method="post" class='jumbotron'>
     {% csrf_token %}
-    {{ form }}
-    <hr/>
-    <input type="submit" value="SignUp" class="btn btn-info">
+    <table class="table">
+            {{form.as_table}}
+        </table>
+    <button type="submit" class="btn btn-info">Sign In</button>
 </form>
 {% endblock %}

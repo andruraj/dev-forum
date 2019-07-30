@@ -22,15 +22,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarColor01">
-          <ul class="navbar-nav mr-auto">
-            <!-- <li class="nav-item active">
-              <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'about' %}">About</a>
-            </li> -->
-          </ul>
-          <ul class='navbar-nav mr-sm-2'>
+          <ul class='navbar-nav mr-auto'>
             {% if user.is_authenticated %}
 
             <li class="nav-item">
@@ -56,6 +48,13 @@
 
             {% endif %}
 
+          </ul>
+          <ul class="navbar-nav mr-sm-2">
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link active" href="#">{{request.user}}</a>
+            </li>
+            {% endif %}
           </ul>
         </div>
       </div>

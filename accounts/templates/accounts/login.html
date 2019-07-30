@@ -5,11 +5,12 @@
 <h1>Signin</h1>
 <form action="{% url 'accounts:login' %}" method="post" class='jumbotron'>
     {% csrf_token %}
-    {{ form }}
+    <table class="table">
+            {{form.as_table}}
+        </table>
     {% if request.GET.next %}
     <input type="hidden" name="next" value="{{request.GET.next}}" />
     {% endif %}
-    <hr/>
-    <input type="submit" value="Sign In" class="btn btn-info">
+    <button type="submit" class="btn btn-info">Sign In</button>
 </form>
 {% endblock %}

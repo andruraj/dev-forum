@@ -25,3 +25,8 @@ def create(request):
     else:
         form = forms.CreatePost()
     return render(request, 'posts/create.html', {'form':form})
+
+@login_required(login_url='/accounts/login/')
+def delete(request, id):
+    Post.objects.filter(pk=id).delete()
+    return redirect('posts:posts')
