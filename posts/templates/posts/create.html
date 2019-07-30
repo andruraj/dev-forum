@@ -1,0 +1,12 @@
+{% extends 'base_temp.html' %}
+
+{% block content %}
+
+<form action="{% url 'posts:create' %}" method="post" class="form-group row">
+    <legend>Create a new post</legend>
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Create" class="btn btn-info">
+</form>
+
+{% endblock %}

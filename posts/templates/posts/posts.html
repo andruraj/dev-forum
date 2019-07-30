@@ -11,7 +11,7 @@
       <!-- <a href="#" class="card-link">Read more</a> -->
     </div>
     <div class="card-footer">
-        <a href="{% url 'details' slug=post.id %}" class="btn btn-info">Read more</a>
+        <a href="{% url 'posts:details' slug=post.id %}" class="btn btn-info">Read more</a>
         <i class="text-muted" style="float: right">{{post.date}}</i>
       </div>
   </div>

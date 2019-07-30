@@ -1,0 +1,15 @@
+{% extends 'base_temp.html' %}
+
+{% block content %}
+
+<h1>Signin</h1>
+<form action="{% url 'accounts:login' %}" method="post" class='jumbotron'>
+    {% csrf_token %}
+    {{ form }}
+    {% if request.GET.next %}
+    <input type="hidden" name="next" value="{{request.GET.next}}" />
+    {% endif %}
+    <hr/>
+    <input type="submit" value="Sign In" class="btn btn-info">
+</form>
+{% endblock %}

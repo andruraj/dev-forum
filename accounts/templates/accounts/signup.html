@@ -1,0 +1,12 @@
+{% extends 'base_temp.html' %}
+
+{% block content %}
+
+<h1>Signup</h1>
+<form action="/accounts/signup/" method="post" class='jumbotron'>
+    {% csrf_token %}
+    {{ form }}
+    <hr/>
+    <input type="submit" value="SignUp" class="btn btn-info">
+</form>
+{% endblock %}
