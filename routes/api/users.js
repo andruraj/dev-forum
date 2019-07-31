@@ -8,8 +8,8 @@ const passport = require("passport");
 const keys = require("../../config/keys");
 
 //input validation
-const validateRegisterInput = require('../../validation/register');
-const validateLoginInput = require('../../validation/login');
+const validateRegisterInput = require("../../validation/register");
+const validateLoginInput = require("../../validation/login");
 
 //user model
 const User = require("../../models/User");
@@ -27,11 +27,10 @@ router.get("/test", (req, res) =>
 // @desc    Register users
 // @access  Public
 router.post("/register", (req, res) => {
-
-  const {errors, isValid} = validateRegisterInput(req.body);
+  const { errors, isValid } = validateRegisterInput(req.body);
 
   //check valid
-  if(!isValid){
+  if (!isValid) {
     return res.status(400).json(errors);
   }
 
@@ -61,23 +60,22 @@ router.post("/register", (req, res) => {
             newUser
               .save()
               .then(user => res.json(user))
-              .catch(err => console.log(err));
+              .catch(err => res.status(404).json(err));
           });
         });
       }
     })
-    .catch(err => console.log(err));
+    .catch(err => res.status(404).json(err));
 });
 
 // @route   POST api/users/login
 // @desc    Login User / Returning JWT Token
 // @access  Public
 router.post("/login", (req, res) => {
-
-  const {errors, isValid} = validateLoginInput(req.body);
+  const { errors, isValid } = validateLoginInput(req.body);
 
   //check valid
-  if(!isValid){
+  if (!isValid) {
     return res.status(400).json(errors);
   }
 
@@ -89,7 +87,7 @@ router.post("/login", (req, res) => {
     .then(user => {
       //check user
       if (!user) {
-        errors.email = 'User not found';
+        errors.email = "User not found";
         return res.status(404).json(errors);
       }
 
@@ -138,7 +136,7 @@ router.get(
     res.json({
       id: req.user.id,
       name: req.user.name,
-      email: req.user.email,
+      email: req.user.email
     });
   }
 );
