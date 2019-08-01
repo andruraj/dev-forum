@@ -41,3 +41,26 @@ export const createProfile = (profileData, history) => dispatch => {
       })
     );
 };
+
+export const deleteAccount = () => dispatch => {
+  if (
+    window.confirm(
+      "Are you sure you want to delete your account? This action can NOT be undone!"
+    )
+  ) {
+    axios
+      .delete("/api/profile")
+      .then(res =>
+        dispatch({
+          type: "SET_CURRENT_USER",
+          payload: {}
+        })
+      )
+      .catch(err =>
+        dispatch({
+          type: "GET_ERRORS",
+          payload: err.response.data
+        })
+      );
+  }
+};
