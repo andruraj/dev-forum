@@ -42,6 +42,29 @@ export const createProfile = (profileData, history) => dispatch => {
     );
 };
 
+export const addExperience = (exp, history) => dispatch => {
+  axios
+    .get("/api/profile/experience", exp)
+    .then(res => history.push("/dashboard"))
+    .catch(err =>
+      dispatch({
+        type: "GET_ERRORS",
+        payload: err.response.data
+      })
+    );
+};
+export const addEducation = (edu, history) => dispatch => {
+  axios
+    .get("/api/profile/education", edu)
+    .then(res => history.push("/dashboard"))
+    .catch(err =>
+      dispatch({
+        type: "GET_ERRORS",
+        payload: err.response.data
+      })
+    );
+};
+
 export const deleteAccount = () => dispatch => {
   if (
     window.confirm(
