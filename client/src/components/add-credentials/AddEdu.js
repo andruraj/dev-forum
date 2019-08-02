@@ -48,18 +48,18 @@ class AddEdu extends Component {
   render() {
     const { errors } = this.state;
     return (
-      <div class="section add-education">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-8 m-auto">
-              <Link to="/dashboard" class="btn btn-light">
+      <div className="section add-education">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-8 m-auto">
+              <Link to="/dashboard" className="btn btn-light">
                 Go Back
               </Link>
-              <h1 class="display-4 text-center">Add Education</h1>
-              <p class="lead text-center">
+              <h1 className="display-4 text-center">Add Education</h1>
+              <p className="lead text-center">
                 Add any school, college, etc you have attended
               </p>
-              <small class="d-block pb-3">* = required field</small>
+              <small className="d-block pb-3">* = required field</small>
               <form onSubmit={this.handleSubmit}>
                 <TextFieldGroup
                   placeholder="* School"
@@ -102,9 +102,9 @@ class AddEdu extends Component {
                   type="date"
                   disabled={this.state.disabled ? "disabled" : ""}
                 />
-                <div class="form-check mb-4">
+                <div className="form-check mb-4">
                   <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="checkbox"
                     value={this.state.current}
                     checked={this.state.current}
@@ -112,7 +112,7 @@ class AddEdu extends Component {
                     name="current"
                     id="current"
                   />
-                  <label class="form-check-label" htmlFor="current">
+                  <label className="form-check-label" htmlFor="current">
                     Current Course
                   </label>
                 </div>
@@ -124,7 +124,7 @@ class AddEdu extends Component {
                   onChange={this.handleChange}
                   error={errors.description}
                 />
-                <input type="submit" class="btn btn-info btn-block mt-4" />
+                <input type="submit" className="btn btn-info btn-block mt-4" />
               </form>
             </div>
           </div>

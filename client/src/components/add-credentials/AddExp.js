@@ -7,17 +7,20 @@ import { connect } from "react-redux";
 import { addExperience } from "../../actions/profileActions";
 
 class AddExp extends Component {
-  state = {
-    company: "",
-    location: "",
-    title: "",
-    from: "",
-    to: "",
-    current: false,
-    description: "",
-    errors: {},
-    disabled: false
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      company: "",
+      location: "",
+      title: "",
+      from: "",
+      to: "",
+      current: false,
+      description: "",
+      errors: {},
+      disabled: false
+    };
+  }
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
@@ -48,27 +51,20 @@ class AddExp extends Component {
   render() {
     const { errors } = this.state;
     return (
-      <div class="section add-experience">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-8 m-auto">
-              <Link to="/dashboard" class="btn btn-light">
+      <div className="section add-experience">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-8 m-auto">
+              <Link to="/dashboard" className="btn btn-light">
                 Go Back
               </Link>
-              <h1 class="display-4 text-center">Add Your Experience</h1>
-              <p class="lead text-center">
+              <h1 className="display-4 text-center">Add Your Experience</h1>
+              <p className="lead text-center">
                 Add any developer/programming positions that you have had in the
                 past
               </p>
-              <small class="d-block pb-3">* = required field</small>
+              <small className="d-block pb-3">* = required field</small>
               <form onSubmit={this.handleSubmit}>
-                <TextFieldGroup
-                  placeholder="* Job Title"
-                  name="title"
-                  value={this.state.title}
-                  onChange={this.handleChange}
-                  error={errors.title}
-                />
                 <TextFieldGroup
                   placeholder="* Company"
                   name="company"
@@ -76,6 +72,14 @@ class AddExp extends Component {
                   onChange={this.handleChange}
                   error={errors.company}
                 />
+                <TextFieldGroup
+                  placeholder="* Job Title"
+                  name="title"
+                  value={this.state.title}
+                  onChange={this.handleChange}
+                  error={errors.title}
+                />
+
                 <TextFieldGroup
                   placeholder="Location"
                   name="location"
@@ -102,9 +106,9 @@ class AddExp extends Component {
                   type="date"
                   disabled={this.state.disabled ? "disabled" : ""}
                 />
-                <div class="form-check mb-4">
+                <div className="form-check mb-4">
                   <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="checkbox"
                     value={this.state.current}
                     checked={this.state.current}
@@ -112,7 +116,7 @@ class AddExp extends Component {
                     name="current"
                     id="current"
                   />
-                  <label class="form-check-label" htmlFor="current">
+                  <label className="form-check-label" htmlFor="current">
                     Current Job
                   </label>
                 </div>
@@ -124,7 +128,7 @@ class AddExp extends Component {
                   onChange={this.handleChange}
                   error={errors.description}
                 />
-                <input type="submit" class="btn btn-info btn-block mt-4" />
+                <input type="submit" className="btn btn-info btn-block mt-4" />
               </form>
             </div>
           </div>

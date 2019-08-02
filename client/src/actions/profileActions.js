@@ -42,9 +42,9 @@ export const createProfile = (profileData, history) => dispatch => {
     );
 };
 
-export const addExperience = (exp, history) => dispatch => {
+export const addExperience = (expData, history) => dispatch => {
   axios
-    .get("/api/profile/experience", exp)
+    .post("/api/profile/experience", expData)
     .then(res => history.push("/dashboard"))
     .catch(err =>
       dispatch({
@@ -55,8 +55,42 @@ export const addExperience = (exp, history) => dispatch => {
 };
 export const addEducation = (edu, history) => dispatch => {
   axios
-    .get("/api/profile/education", edu)
+    .post("/api/profile/education", edu)
     .then(res => history.push("/dashboard"))
+    .catch(err =>
+      dispatch({
+        type: "GET_ERRORS",
+        payload: err.response.data
+      })
+    );
+};
+
+export const deleteExp = id => dispatch => {
+  axios
+    .delete(`/api/profile/experience/${id}`)
+    .then(res =>
+      dispatch({
+        type: "GET_PROFILE",
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: "GET_ERRORS",
+        payload: err.response.data
+      })
+    );
+};
+
+export const deleteEdu = id => dispatch => {
+  axios
+    .delete(`/api/profile/education/${id}`)
+    .then(res =>
+      dispatch({
+        type: "GET_PROFILE",
+        payload: res.data
+      })
+    )
     .catch(err =>
       dispatch({
         type: "GET_ERRORS",
@@ -86,4 +120,40 @@ export const deleteAccount = () => dispatch => {
         })
       );
   }
+};
+
+export const getProfiles = () => dispatch => {
+  dispatch(setProfileLoading());
+  axios
+    .get(`/api/profile/all`)
+    .then(res =>
+      dispatch({
+        type: "GET_PROFILES",
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: "GET_PROFILES",
+        payload: null
+      })
+    );
+};
+
+export const getProfileByHandle = handle => dispatch => {
+  dispatch(setProfileLoading());
+  axios
+    .get(`/api/profile/handle/${handle}`)
+    .then(res =>
+      dispatch({
+        type: "GET_PROFILE",
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: "GET_PROFILE",
+        payload: null
+      })
+    );
 };

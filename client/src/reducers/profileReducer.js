@@ -22,6 +22,12 @@ const profileReducer = (state = initState, action) => {
         ...state,
         profile: null
       };
+    case "GET_PROFILES":
+      return {
+        ...state,
+        profiles: action.payload,
+        loading: false
+      };
     default:
       return state;
   }

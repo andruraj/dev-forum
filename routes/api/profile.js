@@ -170,7 +170,7 @@ router.get("/all", (req, res) => {
 // @route   GET api/profile/experience
 // @desc    add exp
 // @access  Private
-router.get(
+router.post(
   "/experience",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
@@ -206,7 +206,7 @@ router.get(
 // @route   GET api/profile/education
 // @desc    add edu
 // @access  Private
-router.get(
+router.post(
   "/education",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
