@@ -35,7 +35,12 @@ export default class ProfileHeader extends Component {
                 {isEmpty(profile.website) ? null : (
                   <a
                     className="text-white p-2"
-                    href={profile.website}
+                    href={
+                      profile.website.includes("https://") ||
+                      profile.website.includes("http://")
+                        ? profile.website
+                        : "https://" + profile.website
+                    }
                     target="_blank"
                   >
                     <i className="fas fa-globe fa-2x" />
@@ -45,7 +50,12 @@ export default class ProfileHeader extends Component {
                 {isEmpty(profile.social && profile.social.twitter) ? null : (
                   <a
                     className="text-white p-2"
-                    href={profile.social.twitter}
+                    href={
+                      profile.social.twitter.includes("https://") ||
+                      profile.social.twitter.includes("http://")
+                        ? profile.social.twitter
+                        : "https://" + profile.social.twitter
+                    }
                     target="_blank"
                   >
                     <i className="fas fa-twitter fa-2x" />
@@ -54,7 +64,12 @@ export default class ProfileHeader extends Component {
                 {isEmpty(profile.social && profile.social.facebook) ? null : (
                   <a
                     className="text-white p-2"
-                    href={profile.social.facebook}
+                    href={
+                      profile.social.facebook.includes("https://") ||
+                      profile.social.facebook.includes("http://")
+                        ? profile.social.facebook
+                        : "https://" + profile.social.facebook
+                    }
                     target="_blank"
                   >
                     <i className="fab fa-facebook fa-2x" />
@@ -64,7 +79,12 @@ export default class ProfileHeader extends Component {
                 {isEmpty(profile.social && profile.social.linkedin) ? null : (
                   <a
                     className="text-white p-2"
-                    href={profile.social.linkedin}
+                    href={
+                      profile.social.linkedin.includes("https://") ||
+                      profile.social.linkedin.includes("http://")
+                        ? profile.social.linkedin
+                        : "https://" + profile.social.linkedin
+                    }
                     target="_blank"
                   >
                     <i className="fab fa-linkedin fa-2x" />
@@ -74,7 +94,12 @@ export default class ProfileHeader extends Component {
                 {isEmpty(profile.social && profile.social.instagram) ? null : (
                   <a
                     className="text-white p-2"
-                    href={profile.social.instagram}
+                    href={
+                      profile.social.instagram.includes("https://") ||
+                      profile.social.instagram.includes("http://")
+                        ? profile.social.instagram
+                        : "https://" + profile.social.instagram
+                    }
                     target="_blank"
                   >
                     <i className="fab fa-instagram fa-2x" />
