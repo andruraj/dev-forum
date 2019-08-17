@@ -54,7 +54,7 @@ class Navbar extends Component {
     );
     return (
       <div>
-        <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4 sticky-top">
+        <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4 fixed-top">
           <div className="container">
             <Link className="navbar-brand" to="/">
               <b>DevForum</b>
@@ -81,6 +81,7 @@ class Navbar extends Component {
             </div>
           </div>
         </nav>
+        <div style={{ marginTop: "80px" }} />
       </div>
     );
   }

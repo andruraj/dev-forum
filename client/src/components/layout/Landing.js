@@ -25,10 +25,13 @@ class Landing extends Component {
                     help from other developers{" "}
                   </p>
                   <hr />
-                  <Link to="register" className="btn btn-lg btn-info mr-2">
+                  <Link
+                    to="register"
+                    className="btn btn-lg btn-outline-info mr-2"
+                  >
                     Sign Up
                   </Link>
-                  <Link to="/login" className="btn btn-lg btn-light">
+                  <Link to="/login" className="btn btn-lg btn-outline-success">
                     Login
                   </Link>
                 </div>
