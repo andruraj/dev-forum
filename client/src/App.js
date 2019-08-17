@@ -83,7 +83,7 @@ export default class App extends Component {
 
               <Route exact path="/not-found" component={NotFound} />
             </div>
-            {/* <Footer /> */}
+            <Footer />
           </div>
         </BrowserRouter>
       </Provider>
